@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/day/Desktop/projects/cs451_commerce_bank_project/cs451_commerce_bank_project/cs451_commerce_bank_project.csproj": {}
+  },
+  "projects": {
+    "/Users/day/Desktop/projects/cs451_commerce_bank_project/cs451_commerce_bank_project/cs451_commerce_bank_project.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/day/Desktop/projects/cs451_commerce_bank_project/cs451_commerce_bank_project/cs451_commerce_bank_project.csproj",
+        "projectName": "cs451_commerce_bank_project",
+        "projectPath": "/Users/day/Desktop/projects/cs451_commerce_bank_project/cs451_commerce_bank_project/cs451_commerce_bank_project.csproj",
+        "packagesPath": "/Users/day/.nuget/packages/",
+        "outputPath": "/Users/day/Desktop/projects/cs451_commerce_bank_project/cs451_commerce_bank_project/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/day/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
