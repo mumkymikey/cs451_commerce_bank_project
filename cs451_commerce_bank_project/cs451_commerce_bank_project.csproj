@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="vue" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="vue" Version="2.6.11" />
+  </ItemGroup>
 </Project>
