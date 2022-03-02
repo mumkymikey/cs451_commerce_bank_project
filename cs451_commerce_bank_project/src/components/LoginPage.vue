@@ -1,10 +1,10 @@
 ﻿<template>
   <div>
-    <input type="text" v-model="userName" />
+    <input type="text" v-model="name" />
     <button @click="onClickSave">Save</button>
     <ul>
-      <li v-for="user in users" :key="user.id">
-        {{ user.name }}
+      <li v-for="item in items" :key="item.id">
+        {{ item.name }}
       </li>
     </ul>
   </div>
@@ -14,32 +14,30 @@
 export default {
   data() {
     return {
-      userName: '',
+      name: '',
       items: []
     }
   },
   methods: {
     async onClickSave() {
       await fetch('https://localhost:3000/user', {
-        method: 'GET',
-        data: this.userName
+        method: 'POST',
+        data: this.name
       })
 
-      this.userName = ''
+      this.name = ''
       await this.loadItems();
     },
 
     async loadItems() {
       await fetch('https://localhost:3000/user', {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userName: this.userName })
+        body: JSON.stringify({ name: this.name })
       })
-
-      this.userName = ''
     },
 
     async mounted() {
