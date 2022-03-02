@@ -11,6 +11,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   data() {
     return {
@@ -18,11 +19,18 @@ export default {
       items: []
     }
   },
+  async mounted() {
+    await this.loadItems()
+  },
   methods: {
     async onClickSave() {
-      await fetch('https://localhost:3000/user', {
+      const response = await fetch('https://localhost:3000/user', {
         method: 'POST',
-        data: this.name
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: this.name })
       })
 
       this.name = ''
@@ -30,18 +38,8 @@ export default {
     },
 
     async loadItems() {
-      await fetch('https://localhost:3000/user', {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: this.name })
-      })
-    },
-
-    async mounted() {
-      await this.loadItems()
+      const response = await fetch('https://localhost:3000/user')
+      this.items = await response.json()
     }
   }
 }

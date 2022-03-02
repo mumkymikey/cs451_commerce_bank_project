@@ -36,12 +36,12 @@ namespace cs451_commerce_bank_project.Controllers
         }
 
         [HttpPost]
-        public async Task<User> Create([FromForm] User user)
+        public async Task<int> Create([FromBody] User user)
         {
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync();
 
-            return user;
+            return user.Id;
         }
 
         [HttpPut("{id}")]
