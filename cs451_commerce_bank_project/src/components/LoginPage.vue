@@ -1,5 +1,6 @@
 ﻿<template>
-  <div>
+  <div class="container">
+    <b-card>
     <input type="text" v-model="name" />
     <button @click="onClickSave">Save</button>
     <ul>
@@ -7,6 +8,7 @@
         {{ item.name }}
       </li>
     </ul>
+  </b-card>
   </div>
 </template>
 
@@ -44,3 +46,14 @@ export default {
   }
 }
 </script>
+
+<style>
+div {
+  width: 500px;
+  margin: auto
+}
+
+.container {
+  margin: auto
+}
+</style>
