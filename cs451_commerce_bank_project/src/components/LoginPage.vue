@@ -33,16 +33,8 @@
         ></b-form-input>
       </b-form-group>
       <br />
-      <!-- <b-button type="login" variant="primary">Login</b-button> -->
       <button @click="onLogin">Login</button>
     </b-form>
-    <!-- <input type="text" v-model="name" />
-    <button @click="onClickSave">Save</button>
-    <ul>
-      <li v-for="item in items" :key="item.id">
-        {{ item.name }}
-      </li>
-    </ul> -->
     </b-card>
   </div>
 </template>

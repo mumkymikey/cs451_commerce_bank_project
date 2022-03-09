@@ -22,10 +22,7 @@ namespace cs451_commerce_bank_project.Controllers
         [HttpPost]
         public ActionResult Create([FromBody] User login)
         {
-            Console.WriteLine(login.EmailAddress);
-            Console.WriteLine("test");
             var user = db.Users.Where(a => a.EmailAddress == login.EmailAddress).FirstOrDefault();
-            Console.WriteLine(user);
 
             return Redirect("http://localhost:8080/");
         }
