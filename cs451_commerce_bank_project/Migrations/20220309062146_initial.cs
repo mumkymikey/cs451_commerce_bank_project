@@ -14,6 +14,7 @@ namespace cs451_commerce_bank_project.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -22,7 +23,7 @@ namespace cs451_commerce_bank_project.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "NotificationRule",
+                name: "NotificationRules",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -34,9 +35,9 @@ namespace cs451_commerce_bank_project.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_NotificationRule", x => x.Id);
+                    table.PrimaryKey("PK_NotificationRules", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_NotificationRule_Users_UserId",
+                        name: "FK_NotificationRules_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -44,7 +45,7 @@ namespace cs451_commerce_bank_project.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transaction",
+                name: "Transactions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -60,9 +61,9 @@ namespace cs451_commerce_bank_project.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Transaction", x => x.Id);
+                    table.PrimaryKey("PK_Transactions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Transaction_Users_UserId",
+                        name: "FK_Transactions_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -70,23 +71,23 @@ namespace cs451_commerce_bank_project.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_NotificationRule_UserId",
-                table: "NotificationRule",
+                name: "IX_NotificationRules_UserId",
+                table: "NotificationRules",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transaction_UserId",
-                table: "Transaction",
+                name: "IX_Transactions_UserId",
+                table: "Transactions",
                 column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "NotificationRule");
+                name: "NotificationRules");
 
             migrationBuilder.DropTable(
-                name: "Transaction");
+                name: "Transactions");
 
             migrationBuilder.DropTable(
                 name: "Users");

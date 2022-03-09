@@ -10,7 +10,7 @@ using cs451_commerce_bank_project;
 namespace cs451_commerce_bank_project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220307063057_initial")]
+    [Migration("20220309062146_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,7 +44,7 @@ namespace cs451_commerce_bank_project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("NotificationRule");
+                    b.ToTable("NotificationRules");
                 });
 
             modelBuilder.Entity("cs451_commerce_bank_project.Models.Transaction", b =>
@@ -82,7 +82,7 @@ namespace cs451_commerce_bank_project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Transaction");
+                    b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("cs451_commerce_bank_project.Models.User", b =>
@@ -91,6 +91,9 @@ namespace cs451_commerce_bank_project.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
