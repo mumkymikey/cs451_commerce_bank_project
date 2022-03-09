@@ -28,6 +28,6 @@ namespace cs451_commerce_bank_project.Controllers
             Console.WriteLine(user);
 
             return Redirect("http://localhost:8080/");
-    }
+        }
     }
 }
