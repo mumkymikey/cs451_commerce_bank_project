@@ -20,18 +20,17 @@ namespace cs451_commerce_bank_project.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([FromBody] User login)
+        public IActionResult Create([FromBody] User login)
         {
+            if (string.IsNullOrEmpty(login.EmailAddress) || string.IsNullOrEmpty(login.Password))
+              return BadRequest();
+
             var user = db.Users.Where(a => a.EmailAddress == login.EmailAddress).FirstOrDefault();
 
             if (user != null && user.Password == login.Password)
-            {
-                return Redirect("http://localhost:8080/dashboard");
-            }
+                return Ok();
             else
-            {
-                return Redirect("http://localhost:8080");
-            }
+                return BadRequest();
         }
     }
 }

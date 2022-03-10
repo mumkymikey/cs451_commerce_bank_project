@@ -12,17 +12,17 @@ namespace cs451_commerce_bank_project.Controllers
     [Route("[controller]")]
     public class UserController : Controller
     {
-        private readonly AppDbContext _dbContext;
+        private readonly AppDbContext db;
 
         public UserController(AppDbContext dbContext)
         {
-            _dbContext = dbContext;
+            db = dbContext;
         }
 
         [HttpGet]
         public async Task<IEnumerable<User>> Get()
         {
-            var users = await _dbContext.Users.ToListAsync();
+            var users = await db.Users.ToListAsync();
 
             return users;
         }
@@ -30,7 +30,7 @@ namespace cs451_commerce_bank_project.Controllers
         [HttpGet("{id}")]
         public async Task<User> Get(int id)
         {
-            var item = await _dbContext.Users.FirstOrDefaultAsync(item => item.Id == id);
+            var item = await db.Users.FirstOrDefaultAsync(item => item.Id == id);
 
             return item;
         }
@@ -38,8 +38,8 @@ namespace cs451_commerce_bank_project.Controllers
         [HttpPost]
         public async Task<User> Create([FromBody] User user)
         {
-            _dbContext.Users.Add(user);
-            await _dbContext.SaveChangesAsync();
+            db.Users.Add(user);
+            await db.SaveChangesAsync();
 
             return user;
         }
@@ -47,9 +47,9 @@ namespace cs451_commerce_bank_project.Controllers
         [HttpPut("{id}")]
         public async Task<bool> Update(int id, User user)
         {
-            var existingUser = await _dbContext.Users.FirstOrDefaultAsync(i => i.Id == id);
+            var existingUser = await db.Users.FirstOrDefaultAsync(i => i.Id == id);
             existingUser.Name = user.Name;
-            var result = await _dbContext.SaveChangesAsync();
+            var result = await db.SaveChangesAsync();
 
             return result > 0;
         }
@@ -57,9 +57,9 @@ namespace cs451_commerce_bank_project.Controllers
         [HttpDelete("{id}")]
         public async Task<bool> Delete(int id)
         {
-            var item = await _dbContext.Users.FirstOrDefaultAsync(item => item.Id == id);
-            _dbContext.Users.Remove(item);
-            var result = await _dbContext.SaveChangesAsync();
+            var item = await db.Users.FirstOrDefaultAsync(item => item.Id == id);
+            db.Users.Remove(item);
+            var result = await db.SaveChangesAsync();
 
             return result > 0;
         }

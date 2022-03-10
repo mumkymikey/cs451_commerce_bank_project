@@ -33,7 +33,7 @@
         ></b-form-input>
       </b-form-group>
       <br />
-      <button @click="onClickSave">Login</button>
+      <button @click="onLogin">Login</button>
     </b-form>
     </b-card>
   </div>
@@ -53,23 +53,7 @@ export default {
   },
 
   methods: {
-    async onClickSave() {
-      const response = await fetch('https://localhost:3000/user', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: this.name })
-      })
-
-      this.name = ''
-      await this.loadItems();
-    },
-
     onLogin() {
-      debugger;
-      console.log(this.data);
       const response = fetch('https://localhost:3000/login', {
         method: 'POST',
         headers: {
