@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <router-view />
+    <LoginPage />
    </div>
 </template>
 
 <script>
+import LoginPage from './components/LoginPage.vue';
+
 export default {
   name: 'App',
+  components: {
+    LoginPage
+  }
 }
 </script>
 
