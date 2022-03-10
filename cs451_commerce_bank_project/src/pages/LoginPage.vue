@@ -53,8 +53,8 @@ export default {
   },
 
   methods: {
-    async onLogin() {
-      const response = await fetch('https://localhost:3000/login', {
+    onLogin() {
+      const response = fetch('https://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -62,10 +62,6 @@ export default {
         },
         body: JSON.stringify(this.data)
       })
-
-      if (response.status == 200) {
-        this.$router.push('/notification-rules');
-      }
     },
 
     async loadItems() {
