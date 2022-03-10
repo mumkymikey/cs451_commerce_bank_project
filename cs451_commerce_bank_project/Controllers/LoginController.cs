@@ -24,7 +24,14 @@ namespace cs451_commerce_bank_project.Controllers
         {
             var user = db.Users.Where(a => a.EmailAddress == login.EmailAddress).FirstOrDefault();
 
-            return Redirect("http://localhost:8080/");
+            if (user != null && user.Password == login.Password)
+            {
+                return Redirect("http://localhost:8080/dashboard");
+            }
+            else
+            {
+                return Redirect("http://localhost:8080");
+            }
         }
     }
 }

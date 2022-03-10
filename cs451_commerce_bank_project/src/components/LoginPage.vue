@@ -33,7 +33,7 @@
         ></b-form-input>
       </b-form-group>
       <br />
-      <button @click="onLogin">Login</button>
+      <button @click="onClickSave">Login</button>
     </b-form>
     </b-card>
   </div>
