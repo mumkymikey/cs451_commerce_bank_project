@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import LoginPage from '../pages/LoginPage';
-import HelloWorld from '../components/HelloWorld';
+import NotificationRulesPage from '../pages/NotificationRulesPage';
 
 Vue.use(Router)
 
@@ -13,7 +13,7 @@ export default new Router({
     },
     {
       path: '/notification-rules',
-      component: HelloWorld
+      component: NotificationRulesPage
     }
   ]
 })
