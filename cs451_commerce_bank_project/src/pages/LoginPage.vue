@@ -3,7 +3,7 @@
     <b-card
       title="Login"
     >
-    <b-form @login="onClickSave">
+    <b-form>
       <b-form-group
         id="emailAddress"
         label="Email Address: "
