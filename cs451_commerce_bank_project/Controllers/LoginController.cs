@@ -22,10 +22,10 @@ namespace cs451_commerce_bank_project.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] User login)
         {
-            if (string.IsNullOrEmpty(login.EmailAddress) || string.IsNullOrEmpty(login.Password))
+            if (string.IsNullOrEmpty(login.Username) || string.IsNullOrEmpty(login.Password))
               return BadRequest();
 
-            var user = db.Users.Where(a => a.EmailAddress == login.EmailAddress).FirstOrDefault();
+            var user = db.Users.Where(a => a.Username == login.Username).FirstOrDefault();
 
             if (user != null && user.Password == login.Password)
                 return Ok();

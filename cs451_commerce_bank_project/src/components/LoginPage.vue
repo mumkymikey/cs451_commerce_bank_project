@@ -1,41 +1,23 @@
 ﻿<template>
   <div class="container">
-    <b-card
-      title="Login"
-    >
-    <b-form @login="onClickSave">
-      <b-form-group
-        id="emailAddress"
-        label="Email Address: "
-        label-for="emailAddressInput"
-      >
-        <b-form-input
-          id="emailAddressInput"
-          class="w-75"
-          v-model="data.emailAddress"
-          type="email"
-          placeholder="Enter email address"
+    <form class="card" @submit.prevent="onLogin">
+      <div class="card-body">
+        <h2>Login</h2>
+        <label for="username">Username:</label><br>
+        <input
+          v-model="data.username"
+          placeholder="Enter username"
           required
-        ></b-form-input>
-      </b-form-group>
-      <br />
-      <b-form-group
-        id="password"
-        label="Password: "
-        label-for="passwordInput"
-      >
-        <b-form-input
-          id="passwordInput"
-          class="w-75"
+        ><br><br>
+        <label for="password">Password:</label><br>
+        <input
           v-model="data.password"
           placeholder="Enter password"
           required
-        ></b-form-input>
-      </b-form-group>
-      <br />
-      <button @click="onLogin">Login</button>
-    </b-form>
-    </b-card>
+        ><br><br>
+        <button type="submit">Login</button>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -45,27 +27,36 @@ export default {
   data() {
     return {
       data: {
-        emailAddress: '',
+        username: '',
         password: ''
-      },
-      items: []
+      }
     }
   },
 
   methods: {
-    async onLogin() {
-      const response = await fetch('https://localhost:3000/login', {
+    onLogin() {
+      console.log(this.data.emailAddress);
+      const response = fetch('https://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(this.data)
-      })
+      }).then((response) => {
+        if (response.status == 200) {
+          // add redirect when vue-router implemented
+          alert('Login Successful!');
+        }
+        else if (response.status == 400) {
+          alert('Username and/or password is incorrect!')
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
 
-      if (response.status == 200) {
-        this.$router.push('/notification-rules');
-      }
+      this.data.username = '';
+      this.data.password = '';
     },
 
     async loadItems() {
@@ -77,15 +68,6 @@ export default {
 </script>
 
 <style scoped>
-div {
-  width: 400px;
-  margin: auto;
-}
-
-input {
-  margin-right: 100px;
-}
-
 button {
     appearance: none;
     backface-visibility: hidden;
@@ -114,6 +96,15 @@ button {
     touch-action: manipulation;
     vertical-align: top;
     white-space: nowrap;
+}
+
+div {
+  width: 400px;
+  margin: auto;
+}
+
+input {
+  width: 250px;
 }
 
 .container {
