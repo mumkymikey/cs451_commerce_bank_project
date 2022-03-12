@@ -2,9 +2,10 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
 
-import LoginPage from './components/LoginPage.vue';
-import HomePage from './components/HomePage.vue';
-import TransactionPage from './components/TransactionPage.vue';
+import LoginPage from './pages/LoginPage.vue';
+import HomePage from './pages/HomePage.vue';
+import TransactionPage from './pages/TransactionPage.vue';
+import UserRegistrationPage from './pages/UserRegistrationPage.vue';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -19,7 +20,12 @@ const routes = [
     meta: { title: '' }
   },
   {
-    path: '/home',
+    path: '/user-registration',
+    name: 'User Registration',
+    component: UserRegistrationPage
+  },
+  {
+    path: '/notification-rules',
     name: 'Home Page',
     component: HomePage,
     meta: { title: 'Home' }

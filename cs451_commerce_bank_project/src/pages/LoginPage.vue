@@ -2,7 +2,7 @@
   <div class="container">
     <form class="card" @submit.prevent="onLogin">
       <div class="card-body">
-        <h2>Login</h2>
+        <h2>Login</h2><br>
         <label for="username">Username:</label><br>
         <input
           v-model="data.username"
@@ -16,6 +16,9 @@
           required
         ><br><br>
         <button type="submit">Login</button>
+        <router-link to="/user-registration" class="nav-link">
+          <h5>Sign Up</h5>
+        </router-link>
       </div>
     </form>
   </div>
@@ -45,8 +48,7 @@ export default {
         body: JSON.stringify(this.data)
       }).then((response) => {
         if (response.status == 200) {
-          // add redirect when vue-router implemented
-          alert('Login Successful!');
+          this.$router.push('/notification-rules');
         }
         else if (response.status == 400) {
           alert('Username and/or password is incorrect!')
@@ -86,7 +88,8 @@ button {
     line-height: 1.5;
     outline: none;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    right: 15px;
     text-align: center;
     text-decoration: none;
     transform: translate3d(0, 0, 0);
@@ -98,13 +101,30 @@ button {
     white-space: nowrap;
 }
 
+.card {
+  height: 260px;
+}
+
 div {
   width: 400px;
   margin: auto;
 }
 
+h5 {
+  padding-top: 6px;
+  color: #2f80ed;
+}
+
+.half-break {
+  line-height: 200px;
+}
+
 input {
   width: 250px;
+}
+
+.nav-link {
+  width: 80px;
 }
 
 .container {
