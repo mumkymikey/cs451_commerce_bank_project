@@ -121,7 +121,7 @@ h5 {
 }
 
 input {
-  width: 20em;
+  width: 24em;
 }
 
 .nav-link {
