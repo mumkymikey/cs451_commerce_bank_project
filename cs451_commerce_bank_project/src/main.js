@@ -3,7 +3,7 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 
 import LoginPage from './pages/LoginPage.vue';
-import HomePage from './pages/HomePage.vue';
+import NotificationRulesPage from './pages/NotificationRulesPage.vue';
 import TransactionPage from './pages/TransactionPage.vue';
 import UserRegistrationPage from './pages/UserRegistrationPage.vue';
 
@@ -26,9 +26,9 @@ const routes = [
   },
   {
     path: '/notification-rules',
-    name: 'Home Page',
-    component: HomePage,
-    meta: { title: 'Home' }
+    name: 'Notification Rules',
+    component: NotificationRulesPage,
+    meta: { title: 'Notification Rules' }
   },
   {
     path: '/transactions',

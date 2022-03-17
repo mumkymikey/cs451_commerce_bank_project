@@ -66,11 +66,11 @@
       <textarea class="form-control" aria-label="With textarea"></textarea>
     </div>
   </div>
-  <!-- #home-page -->
+  <!-- #notification-rules-page -->
 </template>
 
 <script>
 export default {
-  name: "HomePage",
+  name: "NotificationRulesPage",
 };
 </script>

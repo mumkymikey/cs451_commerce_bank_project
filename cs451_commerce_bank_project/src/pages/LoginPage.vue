@@ -73,14 +73,14 @@ export default {
 button {
     appearance: none;
     backface-visibility: hidden;
-    background-color: #2f80ed;
+    background-color: #006747;
     border-radius: 10px;
     border-style: none;
     box-shadow: none;
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-size: 15px;
+    font-size: 1em;
     font-weight: 500;
     height: 40px;
     width: 75px;
@@ -102,33 +102,25 @@ button {
 }
 
 .card {
-  height: 260px;
-}
-
-div {
-  width: 400px;
+  height: 21em;
+  width: 30em;
   margin: auto;
 }
 
 h5 {
-  padding-top: 6px;
-  color: #2f80ed;
-}
-
-.half-break {
-  line-height: 200px;
+  color: #006747;
 }
 
 input {
-  width: 250px;
+  width: 24em;
 }
 
 .nav-link {
-  width: 80px;
+  width: 10em;
 }
 
 .container {
   margin: auto;
-  padding-top: 150px;
+  padding-top: 200px;
 }
 </style>

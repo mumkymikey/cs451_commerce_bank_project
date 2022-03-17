@@ -82,14 +82,14 @@ export default {
 button {
     appearance: none;
     backface-visibility: hidden;
-    background-color: #2f80ed;
+    background-color: #006747;
     border-radius: 10px;
     border-style: none;
     box-shadow: none;
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
     height: 40px;
     width: 75px;
@@ -107,34 +107,29 @@ button {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: top;
-    width: 100px;
     white-space: nowrap;
 }
 
 .card {
-  height: 320px;
-}
-
-div {
-  width: 400px;
+  height: 26em;
+  width: 30em;
   margin: auto;
 }
 
 h5 {
-  padding-top: 6px;
-  color: #2f80ed;
+  color: #006747;
 }
 
 input {
-  width: 250px;
+  width: 20em;
 }
 
 .nav-link {
-  width: 80px;
+  width: 10em;
 }
 
 .container {
   margin: auto;
-  padding-top: 150px;
+  padding-top: 200px;
 }
 </style>
