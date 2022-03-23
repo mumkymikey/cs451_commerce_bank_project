@@ -17,6 +17,7 @@
         ><br><br>
         <label for="password">Password:</label><br>
         <input
+          type="password"
           v-model="data.password"
           placeholder="Enter password"
           required
