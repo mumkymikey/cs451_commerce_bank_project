@@ -53,15 +53,8 @@ namespace cs451_commerce_bank_project
             app.UseStaticFiles();
 
             app.UseCors("CorsPolicy");
-            //app.UseCors(builder =>
-            //{
-            //    builder
-            //        .WithOrigins("http://localhost:8080")
-            //        .AllowAnyMethod()
-            //        .AllowAnyHeader();
-            //});
 
-      app.UseRouting();
+            app.UseRouting();
 
             app.UseAuthorization();
 
