@@ -26,6 +26,8 @@
 
 <script>
 /* eslint-disable */
+import store from '../store.js';
+
 export default {
   data() {
     return {
@@ -37,16 +39,19 @@ export default {
   },
 
   methods: {
-    onLogin() {
-      console.log(this.data.emailAddress);
-      const response = fetch('https://localhost:3000/login', {
+    async onLogin() {
+      const response = await fetch('https://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(this.data)
-      }).then((response) => {
+      }).then(async (response) => {
+        // store valid user's id in data store
+        const data = await response.json();
+        store.userId = data.id;
+
         if (response.status == 200) {
           this.$router.push('/notification-rules');
         }

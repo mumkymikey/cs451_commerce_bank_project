@@ -10,10 +10,22 @@
           </router-link>
         </div>
       </div>
-      <router-link to="/" class="nav-link"> Logout </router-link>
+      <!-- <router-link @click="onLogout()" to="/" class="nav-link"> Logout </router-link> -->
+      <a @click="onLogout()" class="nav-link"> Logout </a>
     </div>
   </nav>
 </template>
+
 <script>
-export default {};
+/* eslint-disable */
+import store from '../store.js';
+
+export default {
+  methods: {
+    onLogout() {
+      store.userId = null;
+      this.$router.push('/');
+    }
+  }
+};
 </script>

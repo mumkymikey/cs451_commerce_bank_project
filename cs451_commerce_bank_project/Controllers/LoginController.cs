@@ -28,7 +28,7 @@ namespace cs451_commerce_bank_project.Controllers
             var user = db.Users.Where(a => a.Username == login.Username).FirstOrDefault();
 
             if (user != null && user.Password == login.Password)
-                return Ok();
+                return Ok(user);
             else
                 return BadRequest();
         }
