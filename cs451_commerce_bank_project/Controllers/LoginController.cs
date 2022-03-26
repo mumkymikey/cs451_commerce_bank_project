@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using cs451_commerce_bank_project.Controllers.Concerns;
 using cs451_commerce_bank_project.Models;
 
 namespace cs451_commerce_bank_project.Controllers
@@ -26,8 +27,9 @@ namespace cs451_commerce_bank_project.Controllers
               return BadRequest();
 
             var user = db.Users.Where(a => a.Username == login.Username).FirstOrDefault();
+            var passwordHash = Hashable.HashPassword(login.Password);
 
-            if (user != null && user.Password == login.Password)
+            if (user != null && passwordHash == user.Password)
                 return Ok(user);
             else
                 return BadRequest();
