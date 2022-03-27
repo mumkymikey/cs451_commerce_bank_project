@@ -34,7 +34,13 @@ namespace cs451_commerce_bank_project
                   .AllowAnyMethod()
                   .AllowAnyHeader());
             });
-    }
+
+            services.AddMvc().AddJsonOptions(o =>
+            {
+              o.JsonSerializerOptions.PropertyNamingPolicy = null;
+              o.JsonSerializerOptions.DictionaryKeyPolicy = null;
+            });
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
