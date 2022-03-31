@@ -44,15 +44,8 @@ export default {
   },
 
   mounted() {
-    this.data.userId = store.userId ?? "";
-    fetch("https://localhost:3000/rules", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(this.data),
-    })
+    this.data.userId = store.userId ?? -1;
+    fetch(`https://localhost:3000/rules/${this.data.userId}`)
       .then(async (response) => {
         const data = await response.json();
         console.log(data);
