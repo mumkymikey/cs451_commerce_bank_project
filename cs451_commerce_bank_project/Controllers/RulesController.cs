@@ -21,9 +21,10 @@ namespace cs451_commerce_bank_project.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Index(int id)
+        public async Task<IEnumerable<NotificationRule>> Index(int id)
         {
-            return Ok(id);
+            var data = await db.NotificationRules.ToListAsync();
+            return data.Where(item => item.UserId == id);
         }
     }
 }

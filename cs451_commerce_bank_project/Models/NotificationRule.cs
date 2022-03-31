@@ -6,6 +6,8 @@ namespace cs451_commerce_bank_project.Models
   {
     public int Id { get; set; }
 
+    public int UserId { get; set; }
+
     public String Name { get; set; }
 
     public String Type { get; set; }
