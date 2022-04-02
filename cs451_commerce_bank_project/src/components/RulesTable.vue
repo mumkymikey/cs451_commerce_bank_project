@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-table striped hover outlined :items="getTableData"></b-table>
+    <b-table striped hover :items="getTableData"></b-table>
   </div>
 </template>
 
@@ -25,7 +25,13 @@ export default {
       const response = await fetch(
         `https://localhost:3000/rules/${this.userId}`
       );
+      
       const data = await response.json();
+      data.forEach(item => {
+        item.startTime = new Date(item.startTime).toLocaleString('en-US');
+        item.endTime = new Date(item.endTime).toLocaleString('en-US');
+        delete item.userId;
+      });
 
       return data.length ? data : fallback;
     },

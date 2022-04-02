@@ -1,9 +1,10 @@
 <template>
-  <div id="app">
+  <div id="content-wrapper">
     <NavBar />
-    <RulesTable />
+    <div id="page-content">
+      <RulesTable />
+    </div>
   </div>
-  <!-- #notification-rules-page -->
 </template>
 
 <script>
