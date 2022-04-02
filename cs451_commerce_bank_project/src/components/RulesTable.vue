@@ -1,33 +1,7 @@
 <template>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <b-table striped hover outlined :items="getTableData"></b-table>
+  </div>
 </template>
 
 <script>
@@ -37,22 +11,24 @@ import store from "../store.js";
 export default {
   data() {
     return {
-      data: {
-        userId: "",
-      },
+      userId: '',
     };
   },
 
-  mounted() {
-    this.data.userId = store.userId ?? -1;
-    fetch(`https://localhost:3000/rules/${this.data.userId}`)
-      .then(async (response) => {
-        const data = await response.json();
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  methods: {
+    async getTableData() {
+      const fallback = [
+        { no_rules_found: "Sorry, no rules were found for your account." },
+      ];
+
+      this.userId = store.userId ?? -1;
+      const response = await fetch(
+        `https://localhost:3000/rules/${this.userId}`
+      );
+      const data = await response.json();
+
+      return data.length ? data : fallback;
+    },
   },
 };
 </script>

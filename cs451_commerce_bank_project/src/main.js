@@ -9,8 +9,10 @@ import UserRegistrationPage from './pages/UserRegistrationPage.vue';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import { TablePlugin } from 'bootstrap-vue';
 
 Vue.use(VueRouter);
+Vue.use(TablePlugin);
 
 const routes = [
   {
