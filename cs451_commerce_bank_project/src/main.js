@@ -1,16 +1,17 @@
-import Vue from 'vue';
-import App from './App.vue';
-import VueRouter from 'vue-router';
+import Vue from 'vue'
+import App from './App.vue'
+import VueRouter from 'vue-router'
 
-import LoginPage from './pages/LoginPage.vue';
-import NotificationRulesPage from './pages/NotificationRulesPage.vue';
-import TransactionPage from './pages/TransactionPage.vue';
-import UserRegistrationPage from './pages/UserRegistrationPage.vue';
+import LoginPage from './pages/LoginPage.vue'
+import NotificationRulesPage from './pages/NotificationRulesPage.vue'
+import TransactionPage from './pages/TransactionPage.vue'
+import UserRegistrationPage from './pages/UserRegistrationPage.vue'
+import NewRulePage from './pages/NewRulePage.vue'
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -32,8 +33,8 @@ const routes = [
   },
   {
     path: '/notification-rules/new',
-    name: 'Notification Rules',
-    component: NotificationRulesPage,
+    name: 'New Rules',
+    component: NewRulePage,
     meta: { title: 'Notification Rules' }
   },
   {
