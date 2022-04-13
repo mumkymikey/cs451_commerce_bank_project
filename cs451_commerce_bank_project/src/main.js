@@ -31,6 +31,12 @@ const routes = [
     meta: { title: 'Notification Rules' }
   },
   {
+    path: '/notification-rules/new',
+    name: 'Notification Rules',
+    component: NotificationRulesPage,
+    meta: { title: 'Notification Rules' }
+  },
+  {
     path: '/transactions',
     name: 'Transaction Page',
     component: TransactionPage,
