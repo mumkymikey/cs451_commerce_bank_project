@@ -32,6 +32,14 @@ namespace cs451_commerce_bank_project.Controllers
     [HttpPost]
     public async Task<Transaction> Create([FromBody] Transaction transaction)
     {
+      //var user = db.Users.Where(a => a.AccountId == transaction.UserAccountId).ToListAsync();
+      //var rules = await db.NotificationRules.Where(a => a.UserId == user.Id).ToListAsync();
+
+      //foreach (NotificationRule rule in rules)
+      //{
+
+      //}
+
       db.Transactions.Add(transaction);
       await db.SaveChangesAsync();
 

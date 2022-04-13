@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import LoginPage from './pages/LoginPage.vue';
 import NotificationRulesPage from './pages/NotificationRulesPage.vue';
 import TransactionPage from './pages/TransactionPage.vue';
+import CreateTransactionPage from './pages/CreateTransactionPage.vue';
 import UserRegistrationPage from './pages/UserRegistrationPage.vue';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -35,6 +36,12 @@ const routes = [
     name: 'Transaction Page',
     component: TransactionPage,
     meta: { title: 'Transaction' }
+  },
+  {
+    path: '/transactions/new',
+    name: 'Create a Transaction',
+    component: CreateTransactionPage,
+    meta: { title: 'Create a Transaction' }
   }
 ]
 
