@@ -1,40 +1,44 @@
 <template>
-  <div>
-    <b-table striped hover :items="getTableData"></b-table>
+  <div id="rules-table-wrapper">
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Rule Name</th>
+            <th scope="col">Rule Type</th>
+            <th scope="col">Times Triggered</th>
+          </tr>
+        </thead>
+        <tbody v-if="this.rules.length > 0">
+          <tr v-for="rule in rules" v-bind:key="rule.name">
+            <td>{{rule.name}}</td>
+            <td>{{rule.type}}</td>
+            <td>{{rule.countTriggered}}</td>
+          </tr>
+        </tbody>
+        <tbody v-else>
+          <h2>Sorry, no rules found.</h2>
+        </tbody>
+      </table>
   </div>
 </template>
 
 <script>
-/* eslint-disable */
-import store from "../store.js";
+/* eslint-disable */  
+import store from "../store.js"
 
 export default {
   data() {
     return {
-      userId: '',
+      rules: [],
     };
   },
 
-  methods: {
-    async getTableData() {
-      const fallback = [
-        { no_rules_found: "Sorry, no rules were found for your account." },
-      ];
-
-      this.userId = store.userId ?? -1;
-      const response = await fetch(
-        `https://localhost:3000/rules/${this.userId}`
-      );
-      
-      const data = await response.json();
-      data.forEach(item => {
-        item.startTime = new Date(item.startTime).toLocaleString('en-US');
-        item.endTime = new Date(item.endTime).toLocaleString('en-US');
-        delete item.userId;
-      });
-
-      return data.length ? data : fallback;
+  async mounted() {
+      // TODO: handle network errors (e.g. 500) .. axios?
+      const default_user = 3;
+      const response = await fetch(`https://localhost:3000/rules/${store.userId ?? default_user}`);
+      this.rules = (response.status == 200? await response.json() : null);
     },
-  },
 };
 </script>
