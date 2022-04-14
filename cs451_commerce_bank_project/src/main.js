@@ -7,6 +7,7 @@ import NotificationRulesPage from './pages/NotificationRulesPage.vue'
 import TransactionPage from './pages/TransactionPage.vue'
 import UserRegistrationPage from './pages/UserRegistrationPage.vue'
 import NewRulePage from './pages/NewRulePage.vue'
+import RuleViewingPage from './pages/RuleViewingPage.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -32,10 +33,28 @@ const routes = [
     meta: { title: 'Notification Rules' }
   },
   {
+    path: '/notification-rules/:id',
+    name: 'View Rule',
+    component: RuleViewingPage,
+    meta: { title: 'Notification Rule' }
+  },
+  {
     path: '/notification-rules/new',
     name: 'New Rules',
     component: NewRulePage,
-    meta: { title: 'Notification Rules' }
+    meta: { title: 'New Rule' }
+  },
+  {
+    path: '/notification-rules/:id/edit',
+    name: 'Edit Rule',
+    component: NewRulePage,
+    meta: { title: 'Edit Rule' }
+  },
+  {
+    path: '/notification-rules/:id/delete',
+    name: 'Delete Rule',
+    component: NewRulePage,
+    meta: { title: 'Delete Rule' }
   },
   {
     path: '/transactions',

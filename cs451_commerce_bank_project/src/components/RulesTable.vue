@@ -9,13 +9,17 @@
           <th scope="col">Rule Name</th>
           <th scope="col">Rule Type</th>
           <th scope="col">Times Triggered</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody v-if="this.rules.length > 0">
         <tr v-for="rule in rules" v-bind:key="rule.name">
-          <td>{{ rule.name }}</td>
+          <td><a :href="`/notification-rules/${rule.id}`">{{ rule.name }}</a></td>
           <td>{{ rule.type }}</td>
           <td>{{ rule.countTriggered }}</td>
+          <td><a :href="`/notification-rules/${rule.id}/edit`">Edit</a></td>
+          <td><a :href="`/notification-rules/${rule.id}/delete`">Delete</a></td>
         </tr>
       </tbody>
       <tbody v-else>

@@ -28,9 +28,22 @@ namespace cs451_commerce_bank_project.Controllers
         }
 
         /**
+        * Get data for a single notification rule.
+        *
+        * @param {int} id - Id for the rule to search for
+        * @return {json} rule data
+        */
+        [HttpGet("single/{id}")]
+        public async Task<NotificationRule> Single(int id)
+        {
+            var data = await db.NotificationRules.ToListAsync();
+            return data.Where(item => item.Id == id).FirstOrDefault();
+        }
+
+        /**
         * Add a new notification rule.
         *
-        * @param {json} rule - JSON object with data for new rule.
+        * @param {json} rule - JSON object with data for new rule
         * @return {json} new rule data
         */
         [HttpPost]
