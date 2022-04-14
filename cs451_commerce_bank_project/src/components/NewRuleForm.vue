@@ -5,28 +5,39 @@
     </button>
     <form>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Rule Name: </label>
+        <label for="nameInput">Rule Name: </label>
         <input
           type="text"
-          id="exampleFormControlInput1"
-          placeholder="Something clever"
+          id="nameInput"
+          placeholder="Something memorable"
+          v-model="name"
           required
         />
       </div>
 
       <div class="form-group">
         <label for="exampleFormControlSelect2">Rule Type</label>
-        <select class="form-control" id="exampleFormControlSelect2">
-          <option>💰 Amount</option>
-          <option selected>📍 Location</option>
-          <option>🕖 Time</option>
+        <select
+          class="form-control"
+          id="exampleFormControlSelect2"
+          v-model="type"
+        >
+          <option value="Amount">💰 Amount</option>
+          <option value="Location">📍 Location</option>
+          <option value="Time">🕖 Time</option>
         </select>
       </div>
 
       <div class="form-group">
         <label for="state" class="control-label">State</label>
 
-        <select class="form-control" id="state" name="state" required>
+        <select
+          class="form-control"
+          id="state"
+          name="state"
+          required
+          v-model="location"
+        >
           <option value="AK">Alaska</option>
           <option value="AL">Alabama</option>
           <option value="AR">Arkansas</option>
@@ -51,7 +62,7 @@
           <option value="ME">Maine</option>
           <option value="MI">Michigan</option>
           <option value="MN">Minnesota</option>
-          <option value="MO" selected>Missouri</option>
+          <option value="MO">Missouri</option>
           <option value="MS">Mississippi</option>
           <option value="MT">Montana</option>
           <option value="NC">North Carolina</option>
@@ -96,17 +107,48 @@
 </template>
 
 <script>
-// import { defineComponent } from '@vue/composition-api'
+import store from "../store.js"
 
 export default {
+  data() {
+    return {
+      // This will set default field entries
+      name: null,
+      type: "Location",
+      location: "MO",
+    };
+  },
   methods: {
-    submitRule() {
-      console.log("test");
-      // verify inputs
+    async submitRule() {
+      if (!this.name || !this.location || !this.type) {
+        return;
+      }
 
-      // send ajax request
+      const url = `https://localhost:3000/rules/`;
+      const default_user = 3; // TODO: make user session more persistent
 
-      // process response
+      const data = {
+        UserId: store.userId ?? default_user,
+        name: this.name,
+        location: this.location,
+        type: this.type,
+      };
+
+      await fetch(url, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          alert(response.ok ? "Rule created successfully!" : "Rule could not be created.")
+          this.$router.push("/notification-rules")
+        })
+        .catch((error) => {
+          console.log(error)
+        });
     },
   },
 };

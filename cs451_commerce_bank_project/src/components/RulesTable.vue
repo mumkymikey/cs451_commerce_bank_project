@@ -38,7 +38,7 @@ export default {
 
   async mounted() {
     // TODO: handle network errors (e.g. 500) .. axios?
-    const default_user = 3
+    const default_user = 3 // TODO: make user session more persistent
     const response = await fetch(
       `https://localhost:3000/rules/${store.userId ?? default_user}`
     )

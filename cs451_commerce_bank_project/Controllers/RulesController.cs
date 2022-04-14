@@ -26,5 +26,20 @@ namespace cs451_commerce_bank_project.Controllers
             var data = await db.NotificationRules.ToListAsync();
             return data.Where(item => item.UserId == id);
         }
+
+        /**
+        * Add a new notification rule.
+        *
+        * @param {json} rule - JSON object with data for new rule.
+        * @return {json} new rule data
+        */
+        [HttpPost]
+        public async Task<NotificationRule> Create([FromBody] NotificationRule rule)
+        {
+            db.NotificationRules.Add(rule);
+            await db.SaveChangesAsync();
+
+            return rule;
+        }
     }
 }
