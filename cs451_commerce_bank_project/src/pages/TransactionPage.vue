@@ -1,36 +1,37 @@
 <template>
-  <div id="app">
+  <div id="content-wrapper">
     <NavBar />
     <button @click="addTransaction">Add Transaction</button>
-    <div id="transaction-page">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Account ID</th>
-            <th scope="col">Type</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Location</th>
-            <th scope="col">Balance</th>
-            <th scope="col">Processing Date</th>
-          </tr>
-        </thead>
-        <tbody v-if="this.data.transactions.length > 0">
-          <tr v-for="item in this.data.transactions" v-bind:key="item">
-            <td>{{item.userAccountId}}</td>
-            <td>{{item.type}}</td>
-            <td>{{item.amount}}</td>
-            <td>{{item.location}}</td>
-            <td>{{item.balance}}</td>
-            <td>{{item.processingDate}}</td>
-          </tr>
-        </tbody>
-        <tbody v-else>
-          <h2>No Data Found</h2>
-        </tbody>
-      </table>
+    <div id="page-content">
+      <div id="transaction-page">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Account ID</th>
+              <th scope="col">Type</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Location</th>
+              <th scope="col">Balance</th>
+              <th scope="col">Processing Date</th>
+            </tr>
+          </thead>
+          <tbody v-if="this.data.transactions.length > 0">
+            <tr v-for="item in this.data.transactions" v-bind:key="item">
+              <td>{{item.userAccountId}}</td>
+              <td>{{item.type}}</td>
+              <td>{{item.amount}}</td>
+              <td>{{item.location}}</td>
+              <td>{{item.balance}}</td>
+              <td>{{item.processingDate}}</td>
+            </tr>
+          </tbody>
+          <tbody v-else>
+            <h2>No Data Found</h2>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-  <!-- #transaction-page -->
 </template>
 
 <script>
