@@ -1,50 +1,52 @@
 <template>
-  <div id="app">
+  <div id="content-wrapper">
     <NavBar />
-    <div id="transaction-page">
-      <h2>Create a Transaction</h2>
-      <label>Account ID</label><br>
-      <input
-        v-model.number="transaction.userAccountId"
-        placeholder="Enter account ID"
-        required
-      ><br><br>
-      <label>Type</label><br>
-      <input
-        v-model="transaction.type"
-        placeholder="Enter transaction type"
-        required
-      ><br><br>
-      <label>Amount</label><br>
-      <input
-        v-model.number="transaction.amount"
-        placeholder="Enter amount"
-        required
-      ><br><br>
-      <label>Location</label><br>
-      <input
-        v-model="transaction.location"
-        placeholder="Enter transaction location"
-        required
-      ><br><br>
-      <label>Balance</label><br>
-      <input
-        v-model.number="transaction.balance"
-        placeholder="Enter account balance"
-        required
-      ><br><br>
-      <label>Processing Date</label><br>
-      <input
-        v-model="transaction.processingDate"
-        placeholder="Enter transaction processing date"
-        required
-      ><br><br>
-      <label>Description</label><br>
-      <input
-        v-model="transaction.description"
-        placeholder="Enter description"
-      ><br><br>
-      <button @click="onSubmit">Submit</button>
+    <div id="page-content">
+      <div id="transaction-page">
+        <h2>Create a Transaction</h2>
+        <label>Account ID</label><br>
+        <input
+          v-model.number="transaction.userAccountId"
+          placeholder="Enter account ID"
+          required
+        ><br><br>
+        <label>Type</label><br>
+        <input
+          v-model="transaction.type"
+          placeholder="Enter transaction type"
+          required
+        ><br><br>
+        <label>Amount</label><br>
+        <input
+          v-model.number="transaction.amount"
+          placeholder="Enter amount"
+          required
+        ><br><br>
+        <label>Location</label><br>
+        <input
+          v-model="transaction.location"
+          placeholder="Enter transaction location"
+          required
+        ><br><br>
+        <label>Balance</label><br>
+        <input
+          v-model.number="transaction.balance"
+          placeholder="Enter account balance"
+          required
+        ><br><br>
+        <label>Processing Date</label><br>
+        <input
+          v-model="transaction.processingDate"
+          placeholder="Enter transaction processing date"
+          required
+        ><br><br>
+        <label>Description</label><br>
+        <input
+          v-model="transaction.description"
+          placeholder="Enter description"
+        ><br><br>
+        <button @click="onSubmit">Submit</button>
+      </div>
     </div>
   </div>
 </template>

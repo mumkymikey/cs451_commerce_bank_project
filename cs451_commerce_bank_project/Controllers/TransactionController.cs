@@ -32,13 +32,28 @@ namespace cs451_commerce_bank_project.Controllers
     [HttpPost]
     public async Task<Transaction> Create([FromBody] Transaction transaction)
     {
-      //var user = db.Users.Where(a => a.AccountId == transaction.UserAccountId).ToListAsync();
-      //var rules = await db.NotificationRules.Where(a => a.UserId == user.Id).ToListAsync();
+      var user = await db.Users.Where(a => a.AccountId == transaction.UserAccountId).ToListAsync();
+      var rules = await db.NotificationRules.Where(a => a.UserId == user[0].Id).ToListAsync();
 
-      //foreach (NotificationRule rule in rules)
-      //{
+      foreach (NotificationRule rule in rules)
+      {
+        bool isTriggered = false;
 
-      //}
+        switch (rule.Type)
+        {
+          case "Location":
+            if (transaction.Location != rule.Location)
+              isTriggered = true;
+            break;
+          case "Amount":
+            break;
+          case "Time":
+            break;
+        }
+
+        if (isTriggered)
+          Console.WriteLine(rule.Name + " has been triggered");
+      }
 
       db.Transactions.Add(transaction);
       await db.SaveChangesAsync();
