@@ -54,5 +54,13 @@ namespace cs451_commerce_bank_project.Controllers
 
             return rule;
         }
+
+        [HttpPut("{rule}")]
+        public async Task<NotificationRule> Edit([FromBody] NotificationRule rule) {
+            db.NotificationRules.Update(rule);
+            await db.SaveChangesAsync();
+
+            return rule;
+        }
     }
 }
