@@ -10,7 +10,6 @@
           <th scope="col">Rule Type</th>
           <th scope="col">Times Triggered</th>
           <th scope="col"></th>
-          <th scope="col"></th>
         </tr>
       </thead>
       <tbody v-if="this.rules.length > 0">
@@ -19,7 +18,6 @@
           <td>{{ rule.type }}</td>
           <td>{{ rule.countTriggered }}</td>
           <td><a :href="`/notification-rules/${rule.id}/edit`">Edit</a></td>
-          <td><a :href="`/notification-rules/${rule.id}/delete`">Delete</a></td>
         </tr>
       </tbody>
       <tbody v-else>

@@ -55,9 +55,29 @@ namespace cs451_commerce_bank_project.Controllers
             return rule;
         }
 
+        /**
+        * Update a notification rule.
+        *
+        * @param {json} rule - JSON object with data for update
+        * @return {json} updated rule data
+        */
         [HttpPut("{rule}")]
         public async Task<NotificationRule> Edit([FromBody] NotificationRule rule) {
             db.NotificationRules.Update(rule);
+            await db.SaveChangesAsync();
+
+            return rule;
+        }
+
+        /**
+        * Delete a notification rule.
+        *
+        * @param {json} rule - JSON object with id for rule to remove
+        * @return {json} removed rule info
+        */
+        [HttpDelete("{rule}")]
+        public async Task<NotificationRule> Delete([FromBody] NotificationRule rule) {
+            db.NotificationRules.Remove(rule);
             await db.SaveChangesAsync();
 
             return rule;

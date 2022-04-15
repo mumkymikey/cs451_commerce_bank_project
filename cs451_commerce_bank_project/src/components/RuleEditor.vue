@@ -104,6 +104,13 @@
           >
             Submit
           </button>
+          <button
+            type="button"
+            class="btn btn-pretty btn-danger"
+            @click="deleteRule"
+          >
+            Delete
+          </button>
         </div>
       </form>
     </div>
@@ -171,6 +178,33 @@ export default {
           console.log(error);
         });
     },
+    async deleteRule() {
+      const warning = "Are you sure you want to delete?";
+      if (!confirm(warning)) {
+        return null;
+      }
+
+      const data = {
+        id: this.rule.id,
+      };
+      const url = `https://localhost:3000/rules/${data.id}`;
+
+      await fetch(url, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          alert(response.ok ? "Rule deleted!" : "Rule could not be deleted.");
+          this.$router.push("/notification-rules");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
@@ -194,6 +228,7 @@ export default {
   height: 40px;
   letter-spacing: normal;
   line-height: 1.5;
+  margin-left: 0.5em;
   margin-bottom: 1.5em;
   outline: none;
   overflow: hidden;

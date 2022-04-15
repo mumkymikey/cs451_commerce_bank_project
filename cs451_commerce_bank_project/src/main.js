@@ -10,7 +10,6 @@ import NotificationRulesPage from './pages/NotificationRulesPage.vue'
 import NewRulePage from './pages/NewRulePage.vue'
 import RuleViewingPage from './pages/RuleViewingPage.vue'
 import RuleEditPage from './pages/RuleEditPage.vue'
-import RuleDeletePage from './pages/RuleDeletePage.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -52,12 +51,6 @@ const routes = [
     name: 'Edit Rule',
     component: RuleEditPage,
     meta: { title: 'Edit Rule' }
-  },
-  {
-    path: '/notification-rules/:id/delete',
-    name: 'Delete Rule',
-    component: RuleDeletePage,
-    meta: { title: 'Delete Rule' }
   },
   {
     path: '/transactions',
