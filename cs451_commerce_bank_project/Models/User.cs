@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace cs451_commerce_bank_project.Models
 {
@@ -11,6 +10,8 @@ namespace cs451_commerce_bank_project.Models
         public int AccountId { get; set; }
 
         public String Name { get; set; }
+
+        public String EmailAddress { get; set; }
 
         public String Username { get; set; }
 
