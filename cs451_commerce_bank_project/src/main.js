@@ -47,6 +47,12 @@ const routes = [
     meta: { title: 'Notification Rule' }
   },
   {
+    path: '/notification-rules/new',
+    name: 'New Rules',
+    component: NewRulePage,
+    meta: { title: 'New Rule' }
+  },
+  {
     path: '/notification-rules/:id/edit',
     name: 'Edit Rule',
     component: RuleEditPage,

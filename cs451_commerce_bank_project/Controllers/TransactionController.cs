@@ -12,7 +12,6 @@ namespace cs451_commerce_bank_project.Controllers
   public class TransactionController : Controller
   {
     private readonly AppDbContext db;
-    public RulesController notificationRules;
 
     public TransactionController(AppDbContext dbContext)
     {
