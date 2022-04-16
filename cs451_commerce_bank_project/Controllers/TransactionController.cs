@@ -13,6 +13,7 @@ namespace cs451_commerce_bank_project.Controllers
   public class TransactionController : Controller
   {
     private readonly AppDbContext db;
+    public RulesController notificationRules;
 
     public TransactionController(AppDbContext dbContext)
     {
@@ -52,7 +53,10 @@ namespace cs451_commerce_bank_project.Controllers
         }
 
         if (isTriggered)
-          Console.WriteLine(rule.Name + " has been triggered");
+        {
+          rule.CountTriggered += 1;
+          db.NotificationRules.Update(rule);
+        }
       }
 
       db.Transactions.Add(transaction);
