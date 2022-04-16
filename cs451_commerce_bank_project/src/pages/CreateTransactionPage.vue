@@ -30,6 +30,7 @@
         ><br><br>
         <label>Processing Date</label><br>
         <input
+          type="datetime-local"
           v-model="transaction.processingDate"
           placeholder="Enter transaction processing date"
           required
@@ -103,7 +104,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 button {
     appearance: none;
     backface-visibility: hidden;

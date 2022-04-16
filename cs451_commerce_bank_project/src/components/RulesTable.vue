@@ -9,6 +9,7 @@
           <th scope="col">Rule Name</th>
           <th scope="col">Rule Type</th>
           <th scope="col">Times Triggered</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody v-if="this.rules.length > 0">
