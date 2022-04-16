@@ -2,7 +2,10 @@
   <div id="content-wrapper">
     <NavBar />
     <div id="page-content">
-      <VueJsonToCsv :json-data="this.data.transactions" :csv-title="'transactions_export'">
+      <VueJsonToCsv
+        :json-data="this.data.transactions"
+        :csv-title="'transactions_export'"
+      >
         <button type="button" id="csv-btn" class="btn btn-primary btn-pretty">
           Export CSV
         </button>
@@ -12,32 +15,29 @@
           Add Transaction
         </router-link>
       </button>
+      <br /><br /><br /><br />TODO: remove this hack
       <div id="transaction-page">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Account ID</th>
-              <th scope="col">Type</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Location</th>
-              <th scope="col">Balance</th>
-              <th scope="col">Processing Date</th>
-            </tr>
-          </thead>
-          <tbody v-if="this.data.transactions.length > 0">
-            <tr v-for="item in this.data.transactions" v-bind:key="item">
-              <td>{{ item.userAccountId }}</td>
-              <td>{{ item.type }}</td>
-              <td>{{ item.amount }}</td>
-              <td>{{ item.location }}</td>
-              <td>{{ item.balance }}</td>
-              <td>{{ item.processingDate }}</td>
-            </tr>
-          </tbody>
-          <tbody v-else>
-            <h2>No Transactions Found</h2>
-          </tbody>
-        </table>
+        <v-card>
+          <v-card-title>
+            Text
+            <v-spacer></v-spacer>
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
+          </v-card-title>
+          <v-data-table
+            :headers="headers"
+            :items="data.transactions"
+            :items-per-page="5"
+            :search="search"
+            loading
+            loading-text="Loading... Please wait"
+          ></v-data-table>
+        </v-card>
       </div>
     </div>
   </div>
@@ -54,6 +54,20 @@ export default {
 
   data() {
     return {
+      search: '',
+      headers: [
+        {
+          text: "Accound ID",
+          align: "start",
+          sortable: false,
+          value: "userAccountId",
+        },
+        { text: "Type", value: "type" },
+        { text: "Amount", value: "amount" },
+        { text: "Location", value: "location" },
+        { text: "Balance", value: "balance" },
+        { text: "Processing Date", value: "processingDate" },
+      ],
       data: {
         transactions: [{}],
       },
