@@ -16,6 +16,7 @@
           <td>{{ rule.name }}</td>
           <td>{{ rule.type }}</td>
           <td>{{ rule.countTriggered }}</td>
+          <td><a :href="`/notification-rules/${rule.id}/edit`">Edit</a></td>
         </tr>
       </tbody>
       <tbody v-else>
