@@ -1,8 +1,10 @@
 <template>
   <div id="content-wrapper">
     <NavBar />
-    <button @click="addTransaction">Add Transaction</button>
     <div id="page-content">
+      <button type="button" id="new-rule-btn" class="btn btn-primary">
+        <router-link to="/transactions/new" class="nav-link"> Add Transaction </router-link>
+      </button>
       <div id="transaction-page">
         <table class="table">
           <thead>
@@ -26,7 +28,7 @@
             </tr>
           </tbody>
           <tbody v-else>
-            <h2>No Data Found</h2>
+            <h2>No Transactions Found</h2>
           </tbody>
         </table>
       </div>
@@ -45,7 +47,7 @@ export default {
   data() {
     return {
       data: {
-        transactions: []
+        transactions: [{}]
       }
     }
   },
@@ -53,12 +55,6 @@ export default {
   async mounted() {
     const response = await fetch(`https://localhost:3000/transaction?accountId=${store.accountId}`);
     this.data.transactions = await response.json();
-  },
-
-  methods: {
-    addTransaction() {
-      this.$router.push('/transactions/new');
-    }
   },
 
   components: {
@@ -69,41 +65,43 @@ export default {
 </script>
 
 <style scoped>
+#new-rule-btn a {
+  color: #fff;
+}
 h2 {
   padding-top: 15px;
 }
 
-button {
-    appearance: none;
-    backface-visibility: hidden;
-    background-color: #006747;
-    border-radius: 10px;
-    border-style: none;
-    box-shadow: none;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    float: right;
-    font-size: 1em;
-    font-weight: 500;
-    height: 40px;
-    width: 100px;
-    letter-spacing: normal;
-    line-height: 1.5;
-    margin-top: 2em;
-    margin-bottom: 1.5em;
-    margin-right: 15em;
-    outline: none;
-    overflow: hidden;
-    right: 15px;
-    text-align: center;
-    text-decoration: none;
-    transform: translate3d(0, 0, 0);
-    transition: all .3s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: top;
-    white-space: nowrap;
+#new-rule-btn {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #006747;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  font-size: 1em;
+  font-weight: 500;
+  height: 40px;
+  width: 125px;
+  letter-spacing: normal;
+  line-height: 1em;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  margin-right: 1.5em;
+  outline: none;
+  overflow: hidden;
+  text-align: justify;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
 }
 </style>

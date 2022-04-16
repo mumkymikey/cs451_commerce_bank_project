@@ -20,7 +20,7 @@
         </tr>
       </tbody>
       <tbody v-else>
-        <h2>Sorry, no rules found.</h2>
+        <h2>No Rules Found</h2>
       </tbody>
     </table>
   </div>
@@ -33,7 +33,7 @@ import store from "../store.js"
 export default {
   data() {
     return {
-      rules: [],
+      rules: [{}]
     };
   },
 
@@ -49,6 +49,9 @@ export default {
 
 <style scoped>
 /* TODO: move this to a css file. */
+h2 {
+  padding-top: 15px;
+}
 #new-rule-btn a {
   color: #fff;
 }

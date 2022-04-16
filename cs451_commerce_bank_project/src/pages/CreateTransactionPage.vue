@@ -4,12 +4,6 @@
     <div id="page-content">
       <div id="transaction-page">
         <h2>Create a Transaction</h2>
-        <label>Account ID</label><br>
-        <input
-          v-model.number="transaction.userAccountId"
-          placeholder="Enter account ID"
-          required
-        ><br><br>
         <label>Type</label><br>
         <input
           v-model="transaction.type"
@@ -54,12 +48,13 @@
 <script>
 /* eslint-disable */
 import NavBar from "../components/NavBar.vue";
+import store from '../store.js';
 
 export default {
   data() {
     return {
       transaction: {
-        userAccountId: undefined,
+        userAccountId: store.accountId,
         type: undefined,
         amount: undefined,
         location: undefined,
