@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -24,8 +23,8 @@ namespace cs451_commerce_bank_project.Controllers
     public async Task<IEnumerable<Transaction>> Get(int? accountId)
     {
       var transactions = accountId == null ?
-        await db.Transactions.ToListAsync() :
-        await db.Transactions.Where(a => a.UserAccountId == accountId).ToListAsync();
+        await db.Transactions.OrderByDescending(p => p.ProcessingDate).ToListAsync() :
+        await db.Transactions.Where(a => a.UserAccountId == accountId).OrderByDescending(p => p.ProcessingDate).ToListAsync();
 
       return transactions;
     }
