@@ -13,10 +13,10 @@
       </thead>
       <tbody v-if="this.rules.length > 0">
         <tr v-for="rule in rules" v-bind:key="rule.name">
-          <td>{{ rule.name }}</td>
+          <td><router-link :to="`/notification-rules/${rule.id}`">{{ rule.name }}</router-link></td>
           <td>{{ rule.type }}</td>
           <td>{{ rule.countTriggered }}</td>
-          <td><a :href="`/notification-rules/${rule.id}/edit`">Edit</a></td>
+          <td><router-link :to="`/notification-rules/${rule.id}/edit`">Edit</router-link></td>
         </tr>
       </tbody>
       <tbody v-else>
@@ -68,7 +68,7 @@ export default {
   width: 100px;
   letter-spacing: normal;
   line-height: 1.5;
-  margin-top: 2em;
+  margin-top: 1em;
   margin-bottom: 1.5em;
   margin-right: 1.5em;
   outline: none;

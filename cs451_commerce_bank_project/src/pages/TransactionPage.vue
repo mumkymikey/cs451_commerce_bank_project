@@ -106,11 +106,4 @@ button {
     vertical-align: top;
     white-space: nowrap;
 }
-/* button {
-  float: right;
-  margin-top: 2em;
-  margin-bottom: 1.5em;
-  margin-right: 15em;
-} */
-
 </style>
