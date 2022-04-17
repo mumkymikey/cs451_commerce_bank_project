@@ -15,11 +15,11 @@
           Add Transaction
         </router-link>
       </button>
-      <br /><br /><br /><br />TODO: remove this hack
+      <br /><br /><br /><br /><!-- TODO: remove this hack -->
       <div id="transaction-page">
-        <v-card>
+        <v-card class="mb-1">
           <v-card-title>
-            Text
+            Transactions
             <v-spacer></v-spacer>
             <v-text-field
               v-model="search"

@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <v-fade-transition mode="out-in">
     <router-view />
-  </div>
+  </v-fade-transition>
 </template>
 
 <script>
@@ -53,6 +53,7 @@ merged into the main branch.
 }
 #page-content {
   width: 75%;
-  margin: 3em auto;
+  margin: 1em 5em;
+  float: right;
 }
 </style>
