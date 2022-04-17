@@ -33,7 +33,7 @@
           <v-data-table
             :headers="headers"
             :items="data.transactions"
-            :items-per-page="5"
+            :items-per-page="10"
             :search="search"
             loading
             loading-text="Loading... Please wait"

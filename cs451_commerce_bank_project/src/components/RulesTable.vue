@@ -10,35 +10,28 @@
         New Rule
       </router-link>
     </button>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Rule Name</th>
-          <th scope="col">Rule Type</th>
-          <th scope="col">Times Triggered</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody v-if="this.rules.length > 0">
-        <tr v-for="rule in rules" v-bind:key="rule.name">
-          <td>
-            <router-link :to="`/notification-rules/${rule.id}`">{{
-              rule.name
-            }}</router-link>
-          </td>
-          <td>{{ rule.type }}</td>
-          <td>{{ rule.countTriggered }}</td>
-          <td>
-            <router-link :to="`/notification-rules/${rule.id}/edit`"
-              >Edit</router-link
-            >
-          </td>
-        </tr>
-      </tbody>
-      <tbody v-else>
-        <h2>No Rules Found</h2>
-      </tbody>
-    </table>
+    <br /><br /><br /><br /><!-- TODO: remove this hack -->
+    <v-card class="mb-1">
+      <v-card-title>
+        Notification Rules
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+        :headers="headers"
+        :items="rules"
+        :items-per-page="10"
+        :search="search"
+        loading
+        loading-text="Loading... Please wait"
+      ></v-data-table>
+    </v-card>
   </div>
 </template>
 
@@ -50,6 +43,16 @@ import VueJsonToCsv from "vue-json-to-csv";
 export default {
   data() {
     return {
+      search: "",
+      headers: [
+        {
+          text: "Rule Name",
+          align: "start",
+          value: "name",
+        },
+        { text: "Rule Type", value: "type" },
+        { text: "Count Triggered", value: "countTriggered" },
+      ],
       rules: [{}],
     };
   },
