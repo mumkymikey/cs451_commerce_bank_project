@@ -56,9 +56,9 @@ export default {
           route: "/notification-rules",
         },
         { title: "Transactions", icon: "mdi-receipt", route: "/transactions" },
-        { title: "Notifications", icon: "mdi-bell", route: "/notifications" },
-        { title: "Your Account", icon: "mdi-account", route: "/account" },
-        { title: "FAQs and Help", icon: "mdi-help-box", route: "/help" },
+        { title: "Notifications", icon: "mdi-bell" },
+        { title: "Your Account", icon: "mdi-account" },
+        { title: "FAQs and Help", icon: "mdi-help-box" },
         {
           title: "Logout",
           icon: "mdi-account-off-outline",
