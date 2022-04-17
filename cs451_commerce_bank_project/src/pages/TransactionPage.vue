@@ -1,5 +1,6 @@
 <template>
   <div id="content-wrapper">
+    <AppBar/>
     <NavBar />
     <div id="page-content">
       <VueJsonToCsv
@@ -45,6 +46,7 @@
 
 <script>
 /* eslint-disable */
+import AppBar from "../layouts/AppBar.vue";
 import NavBar from "../components/NavBar.vue";
 import store from "../store.js";
 import VueJsonToCsv from "vue-json-to-csv";
@@ -83,6 +85,7 @@ export default {
 
   components: {
     NavBar,
+    AppBar,
     VueJsonToCsv,
   },
 };
