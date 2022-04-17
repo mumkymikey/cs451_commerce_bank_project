@@ -11,6 +11,9 @@ import NotificationRulesPage from './pages/NotificationRulesPage.vue'
 import NewRulePage from './pages/NewRulePage.vue'
 import RuleViewingPage from './pages/RuleViewingPage.vue'
 import RuleEditPage from './pages/RuleEditPage.vue'
+import HelpPage from './pages/HelpPage.vue'
+import AccountPage from './pages/AccountPage.vue'
+import NotificationsPage from './pages/NotificationsPage.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -28,6 +31,24 @@ const routes = [
     path: '/user-registration',
     name: 'User Registration',
     component: UserRegistrationPage
+  },
+  {
+    path: '/help',
+    name: 'FAQs and Help Center',
+    component: HelpPage,
+    meta: { title: 'FAQs and Help Center' }
+  },
+  {
+    path: '/account',
+    name: 'Account Page',
+    component: AccountPage,
+    meta: { title: 'Account Page' }
+  },
+  {
+    path: '/notifications',
+    name: 'Notifications',
+    component: NotificationsPage,
+    meta: { title: 'Notifications' }
   },
   {
     path: '/notification-rules',

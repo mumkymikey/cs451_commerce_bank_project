@@ -2,23 +2,19 @@
   <div id="content-wrapper">
     <AppBar />
     <NavBar />
-    <div id="page-content">
-      <RulesTable />
-    </div>
+    <div id="page-content">Notify</div>
   </div>
 </template>
 
 <script>
 import AppBar from "../layouts/AppBar.vue";
 import NavBar from "../components/NavBar.vue";
-import RulesTable from "../components/RulesTable.vue";
 
 export default {
-  name: "NotificationRulesPage",
+  name: "NotificationsPage",
   components: {
-    AppBar,
     NavBar,
-    RulesTable,
+    AppBar,
   },
 };
 </script>
