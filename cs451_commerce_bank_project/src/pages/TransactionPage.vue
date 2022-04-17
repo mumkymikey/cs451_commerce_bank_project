@@ -1,22 +1,24 @@
 <template>
   <div id="content-wrapper">
-    <AppBar/>
+    <AppBar />
     <NavBar />
     <div id="page-content">
+      <button type="button" id="new-rule-btn" class="btn btn-primary">
+        <router-link to="/transactions/new">
+          <v-icon dark> mdi-plus-circle </v-icon>
+          Add Transaction
+        </router-link>
+      </button>
       <VueJsonToCsv
         :json-data="this.data.transactions"
         :csv-title="'transactions_export'"
       >
         <button type="button" id="csv-btn" class="btn btn-primary btn-pretty">
-          Export CSV
+          <v-icon dark> mdi-file-export </v-icon>Export CSV
         </button>
       </VueJsonToCsv>
-      <button type="button" id="new-rule-btn" class="btn btn-primary">
-        <router-link to="/transactions/new" class="nav-link">
-          Add Transaction
-        </router-link>
-      </button>
-      <br /><br /><br /><br /><!-- TODO: remove this hack -->
+      
+      <br /><br /><!-- TODO: remove this hack -->
       <div id="transaction-page">
         <v-card class="mb-1">
           <v-card-title>
@@ -56,7 +58,7 @@ export default {
 
   data() {
     return {
-      search: '',
+      search: "",
       headers: [
         {
           text: "Accound ID",
@@ -102,35 +104,12 @@ h2 {
 
 #new-rule-btn,
 #csv-btn {
-  appearance: none;
-  backface-visibility: hidden;
   background-color: #006747;
   border-radius: 10px;
   border-style: none;
-  box-shadow: none;
-  box-sizing: border-box;
   cursor: pointer;
-  display: inline-block;
-  float: right;
   font-size: 1em;
   font-weight: 500;
-  height: 40px;
-  width: 125px;
-  letter-spacing: normal;
-  line-height: 1em;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
-  margin-right: 1.5em;
-  outline: none;
-  overflow: hidden;
-  text-align: justify;
-  text-decoration: none;
-  transform: translate3d(0, 0, 0);
-  transition: all 0.3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
+  margin-right: 1em;
 }
 </style>

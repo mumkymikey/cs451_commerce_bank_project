@@ -1,16 +1,23 @@
 <template>
   <div id="transaction-page">
+    <router-link to="/notification-rules/new">
+      <button
+        type="button"
+        id="new-rule-btn"
+        class="btn btn-primary btn-pretty"
+      >
+        <v-icon dark> mdi-plus-circle </v-icon>
+        New Rule
+      </button>
+    </router-link>
     <VueJsonToCsv :json-data="this.rules" :csv-title="'rules_export'">
       <button type="button" id="csv-btn" class="btn btn-primary btn-pretty">
+        <v-icon dark> mdi-file-export </v-icon>
         Export CSV
       </button>
     </VueJsonToCsv>
-    <button type="button" id="new-rule-btn" class="btn btn-primary">
-      <router-link to="/notification-rules/new" class="nav-link">
-        New Rule
-      </router-link>
-    </button>
-    <br /><br /><br /><br /><!-- TODO: remove this hack -->
+
+    <br /><br /><!-- TODO: remove this hack -->
     <v-card class="mb-1">
       <v-card-title>
         Notification Rules
@@ -52,6 +59,7 @@ export default {
         },
         { text: "Rule Type", value: "type" },
         { text: "Count Triggered", value: "countTriggered" },
+        // {text: "Edit"}
       ],
       rules: [{}],
     };
@@ -80,35 +88,12 @@ h2 {
 }
 #new-rule-btn,
 #csv-btn {
-  appearance: none;
-  backface-visibility: hidden;
   background-color: #006747;
   border-radius: 10px;
   border-style: none;
-  box-shadow: none;
   cursor: pointer;
-  display: inline-block;
-  float: right;
   font-size: 1em;
   font-weight: 500;
-  height: 40px;
-  width: 100px;
-  letter-spacing: normal;
-  line-height: 1.5;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
-  margin-right: 1.5em;
-  outline: none;
-  overflow: hidden;
-  right: 15px;
-  text-align: center;
-  text-decoration: none;
-  transform: translate3d(0, 0, 0);
-  transition: all 0.3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
+  margin-right: 1em;
 }
 </style>

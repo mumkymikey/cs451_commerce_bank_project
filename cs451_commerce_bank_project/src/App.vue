@@ -45,12 +45,6 @@ merged into the main branch.
 #content-wrapper > nav {
   background-color: #006747 !important;
 }
-#content-wrapper .nav-link,
-#content-wrapper .navbar-brand,
-#content-wrapper .btn {
-  /* font-weight: bold; */
-  color: lightgray;
-}
 #page-content {
   width: 75%;
   margin: 1em 5em;
