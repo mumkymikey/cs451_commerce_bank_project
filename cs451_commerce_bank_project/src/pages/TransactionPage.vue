@@ -21,9 +21,9 @@
             <tr v-for="item in this.data.transactions" v-bind:key="item">
               <td>{{item.userAccountId}}</td>
               <td>{{item.type}}</td>
-              <td>{{item.amount}}</td>
+              <td>${{item.amount}}</td>
               <td>{{item.location}}</td>
-              <td>{{item.balance}}</td>
+              <td>${{item.balance}}</td>
               <td>{{item.processingDate}}</td>
             </tr>
           </tbody>
