@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import AppBar from "../layouts/AppBar.vue";
+import AppBar from "../components/AppBar.vue";
 import NavBar from "../components/NavBar.vue";
 import RulesTable from "../components/RulesTable.vue";
 
