@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
+// 3rd party imports
+import Auth from '@okta/okta-vue'
+
+
 import LoginPage from './pages/LoginPage.vue'
 import TransactionPage from './pages/TransactionPage.vue'
 import CreateTransactionPage from './pages/CreateTransactionPage.vue'
@@ -14,7 +18,15 @@ import RuleEditPage from './pages/RuleEditPage.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+Vue.use(Auth, {
+  issuer: 'https://dev-38968620.okta.com/oauth2/default',
+  client_id: '0oa4k0z3g1EgEirNk5d7',
+  redirect_uri: 'http://localhost:8080/login/callback',
+  scope: 'openid profile email'
+})
+
 Vue.use(VueRouter)
+
 
 const routes = [
   {
@@ -23,6 +35,10 @@ const routes = [
     component: LoginPage,
     meta: { title: '' }
   },
+  {
+    path: '/login/callback',
+    component: Auth.handleCallback()
+	},
   {
     path: '/user-registration',
     name: 'User Registration',
@@ -76,3 +92,7 @@ new Vue({
   router,
   render: h =>h(App)
 }).$mount('#app');
+
+router.beforeEach(Vue.prototype.$auth.authRedirectGuard())
+
+export default router
