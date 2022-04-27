@@ -28,10 +28,38 @@
     </v-list>
     <template #append>
       <div class="pa-4 text-center">
-        <v-icon left> mdi-facebook </v-icon>
-        <v-icon left> mdi-twitter </v-icon>
-        <v-icon left> mdi-linkedin </v-icon>
-        <v-icon left> mdi-instagram </v-icon>
+        <v-btn
+          href="https://www.facebook.com/commercebank"
+          target="_blank"
+          style="text-decoration: none"
+          icon
+        >
+          <v-icon> mdi-facebook </v-icon>
+        </v-btn>
+        <v-btn
+          href="https://www.twitter.com/commercebank"
+          target="_blank"
+          style="text-decoration: none"
+          icon
+        >
+          <v-icon> mdi-twitter </v-icon>
+        </v-btn>
+        <v-btn
+          href="https://www.linkedin.com/company/commerce_bank  "
+          target="_blank"
+          style="text-decoration: none"
+          icon
+        >
+          <v-icon> mdi-linkedin </v-icon>
+        </v-btn>
+        <v-btn
+          href="https://www.instagram.com/commercebank"
+          target="_blank"
+          style="text-decoration: none"
+          icon
+        >
+          <v-icon> mdi-instagram </v-icon>
+        </v-btn>
         <br /><br />
         <span style="color: lightgray">
           Copyright © 2022 Commerce Bancshares, Inc.
