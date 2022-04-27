@@ -1,49 +1,51 @@
 <template>
-  <div id="content-wrapper">
-    <AppBar />
-    <NavBar />
-    <div id="page-content">
-      <button type="button" id="new-rule-btn" class="btn btn-primary">
-        <router-link to="/transactions/new">
-          <v-icon dark> mdi-plus-circle </v-icon>
-          Add Transaction
-        </router-link>
-      </button>
-      <VueJsonToCsv
-        :json-data="this.data.transactions"
-        :csv-title="'transactions_export'"
-      >
-        <button type="button" id="csv-btn" class="btn btn-primary btn-pretty">
-          <v-icon dark> mdi-file-export </v-icon>Export CSV
+  <v-main>
+    <div id="content-wrapper">
+      <AppBar />
+      <NavBar />
+      <div id="page-content">
+        <button type="button" id="new-rule-btn" class="btn btn-primary">
+          <router-link to="/transactions/new">
+            <v-icon dark> mdi-plus-circle </v-icon>
+            Add Transaction
+          </router-link>
         </button>
-      </VueJsonToCsv>
-      
-      <br /><br /><!-- TODO: remove this hack -->
-      <div id="transaction-page">
-        <v-card class="mb-1">
-          <v-card-title>
-            Transactions
-            <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Search"
-              single-line
-              hide-details
-            ></v-text-field>
-          </v-card-title>
-          <v-data-table
-            :headers="headers"
-            :items="data.transactions"
-            :items-per-page="10"
-            :search="search"
-            loading
-            loading-text="Loading... Please wait"
-          ></v-data-table>
-        </v-card>
+        <VueJsonToCsv
+          :json-data="this.data.transactions"
+          :csv-title="'transactions_export'"
+        >
+          <button type="button" id="csv-btn" class="btn btn-primary btn-pretty">
+            <v-icon dark> mdi-file-export </v-icon>Export CSV
+          </button>
+        </VueJsonToCsv>
+
+        <br /><br /><!-- TODO: remove this hack -->
+        <div id="transaction-page">
+          <v-card class="mb-1">
+            <v-card-title>
+              Transactions
+              <v-spacer></v-spacer>
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search"
+                single-line
+                hide-details
+              ></v-text-field>
+            </v-card-title>
+            <v-data-table
+              :headers="headers"
+              :items="data.transactions"
+              :items-per-page="10"
+              :search="search"
+              loading
+              loading-text="Loading... Please wait"
+            ></v-data-table>
+          </v-card>
+        </div>
       </div>
     </div>
-  </div>
+  </v-main>
 </template>
 
 <script>

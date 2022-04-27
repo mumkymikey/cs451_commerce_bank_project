@@ -1,4 +1,5 @@
 <template>
+<v-main>
   <div id="transaction-page">
     <router-link to="/notification-rules/new">
       <button
@@ -35,11 +36,12 @@
         :items="rules"
         :items-per-page="10"
         :search="search"
-        loading
+        :loading="!rules.length"
         loading-text="Loading... Please wait"
       ></v-data-table>
     </v-card>
   </div>
+</v-main>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-  <v-fade-transition mode="out-in">
-    <router-view />
-  </v-fade-transition>
+  <v-app>
+    <v-fade-transition mode="out-in">
+      <router-view />
+    </v-fade-transition>
+  </v-app>
 </template>
 
 <script>
@@ -46,8 +48,6 @@ merged into the main branch.
   background-color: #006747 !important;
 }
 #page-content {
-  width: 75%;
-  margin: 1em 5em;
-  float: right;
+  margin: 1em;
 }
 </style>
