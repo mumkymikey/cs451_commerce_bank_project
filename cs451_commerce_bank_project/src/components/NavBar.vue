@@ -1,5 +1,6 @@
 <template>
-  <v-navigation-drawer permanent app clipped dark>
+  <v-navigation-drawer permanent app clipped dark
+  class="primary">
     <v-list>
       <v-list-item class="px-2">
         <v-img src="/cb-logo.png"></v-img>
@@ -24,6 +25,10 @@
         <v-list-item-content>
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
+      <v-list-item>
+      <LightDarkSwitch />
       </v-list-item>
     </v-list>
     <template #append>
@@ -73,23 +78,18 @@
 <script>
 /* eslint-disable */
 import store from "../store.js";
+import LightDarkSwitch from "../components/LightDarkSwitch.vue";
 
 export default {
   data() {
     return {
       items: [
-        {
-          title: "Dashboard",
-          icon: "mdi-view-dashboard",
-          route: "/notification-rules",
-        },
         { title: "Transactions", icon: "mdi-receipt", route: "/transactions" },
-        { title: "Notifications", icon: "mdi-bell" },
+        { title: "Notification Rules", icon: "mdi-bell", route: "/notification-rules" },
         { title: "Your Account", icon: "mdi-account" },
-        { title: "FAQs and Help", icon: "mdi-help-box" },
         {
           title: "Logout",
-          icon: "mdi-account-off-outline",
+          icon: "mdi-logout", //"mdi-account-off-outline",
           action: this.onLogout,
         },
       ],
@@ -101,6 +101,9 @@ export default {
       store.userId = null;
       this.$router.push("/");
     },
+  },
+  components: {
+    LightDarkSwitch,
   },
 };
 </script>
