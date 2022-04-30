@@ -135,6 +135,7 @@ export default {
 #new-rule-btn a,
 #csv-btn a {
   color: #fff;
+  text-decoration: none;
 }
 h2 {
   padding-top: 15px;
