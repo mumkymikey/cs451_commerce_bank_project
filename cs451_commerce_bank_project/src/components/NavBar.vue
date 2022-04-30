@@ -86,7 +86,7 @@ export default {
       items: [
         { title: "Transactions", icon: "mdi-receipt", route: "/transactions" },
         { title: "Notification Rules", icon: "mdi-bell", route: "/notification-rules" },
-        { title: "Your Account", icon: "mdi-account" },
+        { title: "Your Account", icon: "mdi-account", route: "/account" },
         {
           title: "Logout",
           icon: "mdi-logout",
