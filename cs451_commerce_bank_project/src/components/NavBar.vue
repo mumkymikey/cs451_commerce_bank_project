@@ -89,7 +89,7 @@ export default {
         { title: "Your Account", icon: "mdi-account" },
         {
           title: "Logout",
-          icon: "mdi-logout", //"mdi-account-off-outline",
+          icon: "mdi-logout",
           action: this.onLogout,
         },
       ],
