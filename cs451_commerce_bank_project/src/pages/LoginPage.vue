@@ -60,7 +60,7 @@ export default {
           store.accountId = data.accountId;
 
           if (response.status == 200) {
-            this.$router.push("/notification-rules");
+            this.$router.push("/transactions");
           } else if (response.status == 400) {
             alert("Username and/or password is incorrect!");
           } else {
