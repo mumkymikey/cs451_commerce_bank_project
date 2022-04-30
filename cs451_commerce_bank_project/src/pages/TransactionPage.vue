@@ -16,7 +16,7 @@
         >
           <button type="button" id="csv-btn" class="btn primary btn-pretty">
             <v-icon dark> mdi-file-export </v-icon>
-            <span style="color:white">Export CSV</span>
+            <span style="color: white">Export CSV</span>
           </button>
         </VueJsonToCsv>
 
@@ -41,7 +41,8 @@
               :search="search"
               :loading="!data.transactions.length"
               loading-text="Loading... Please wait"
-            ></v-data-table>
+            >
+            </v-data-table>
           </v-card>
         </div>
       </div>
@@ -70,10 +71,10 @@ export default {
           value: "userAccountId",
         },
         { text: "Type", value: "type" },
-        { text: "Amount", value: "amount" },
+        { text: "Amount", value: "amount", sortable: false },
         { text: "Location", value: "location" },
-        { text: "Balance", value: "balance" },
-        { text: "Processing Date", value: "processingDate" },
+        { text: "Balance", value: "balance", sortable: false },
+        { text: "Processing Date", value: "processingDate", sortable: false },
       ],
       data: {
         transactions: [{}],
@@ -86,6 +87,19 @@ export default {
       `https://localhost:3000/transaction?accountId=${store.accountId}`
     );
     this.data.transactions = await response.json();
+
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+    await this.data.transactions.forEach((e) => {
+      e.amount = formatter.format(e.amount);
+      e.balance = formatter.format(e.balance);
+      e.processingDate = new Date(e.processingDate).toLocaleDateString(
+        "en-us",
+        { weekday: "long", year: "numeric", month: "short", day: "numeric" }
+      );
+    });
   },
 
   components: {
