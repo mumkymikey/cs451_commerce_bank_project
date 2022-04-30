@@ -24,6 +24,7 @@
         <div id="transaction-page">
           <v-card class="mb-1">
             <v-card-title>
+              <v-icon>mdi-receipt</v-icon>&nbsp;
               Transactions
               <v-spacer></v-spacer>
               <v-text-field
