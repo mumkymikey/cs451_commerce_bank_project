@@ -42,6 +42,11 @@
               :loading="!data.transactions.length"
               loading-text="Loading... Please wait"
             >
+              <template #[`item.type`]="{ item }">
+                <v-chip :color="getColor(item.type)" dark>
+                  {{ item.type }}
+                </v-chip>
+              </template>
             </v-data-table>
           </v-card>
         </div>
@@ -106,6 +111,21 @@ export default {
     NavBar,
     AppBar,
     VueJsonToCsv,
+  },
+
+  methods: {
+    getColor(type) {
+      switch (type) {
+        case "DR":
+          return "green";
+
+        case "CR":
+          return "orange";
+
+        default:
+          return "blue";
+      }
+    },
   },
 };
 </script>
