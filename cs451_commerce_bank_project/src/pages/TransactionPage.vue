@@ -4,7 +4,7 @@
       <AppBar />
       <NavBar />
       <div id="page-content">
-        <button type="button" id="new-rule-btn" class="btn btn-primary">
+        <button type="button" id="new-rule-btn" class="btn primary">
           <router-link to="/transactions/new">
             <v-icon dark> mdi-plus-circle </v-icon>
             Add Transaction
@@ -14,8 +14,9 @@
           :json-data="this.data.transactions"
           :csv-title="'transactions_export'"
         >
-          <button type="button" id="csv-btn" class="btn btn-primary btn-pretty">
-            <v-icon dark> mdi-file-export </v-icon>Export CSV
+          <button type="button" id="csv-btn" class="btn primary btn-pretty">
+            <v-icon dark> mdi-file-export </v-icon>
+            <span style="color:white">Export CSV</span>
           </button>
         </VueJsonToCsv>
 
@@ -38,7 +39,7 @@
               :items="data.transactions"
               :items-per-page="10"
               :search="search"
-              loading
+              :loading="!data.transactions.length"
               loading-text="Loading... Please wait"
             ></v-data-table>
           </v-card>
@@ -106,7 +107,6 @@ h2 {
 
 #new-rule-btn,
 #csv-btn {
-  background-color: #006747;
   border-radius: 10px;
   border-style: none;
   cursor: pointer;
