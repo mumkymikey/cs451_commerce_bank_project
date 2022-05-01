@@ -132,8 +132,8 @@ export default {
 </script>
 
 <style scoped>
-#new-rule-btn a,
-#csv-btn a {
+#new-rule-btn router-link,
+#csv-btn router-link {
   color: #fff;
   text-decoration: none;
 }

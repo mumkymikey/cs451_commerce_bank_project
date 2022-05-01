@@ -91,8 +91,8 @@ export default {
 h2 {
   padding-top: 15px;
 }
-#new-rule-btn a,
-#csv-btn a {
+#new-rule-btn router-link,
+#csv-btn router-link {
   color: #fff;
 }
 #new-rule-btn,
