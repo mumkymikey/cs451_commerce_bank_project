@@ -1,47 +1,54 @@
 <template>
-<v-main>
-  <div id="transaction-page">
-    <router-link to="/notification-rules/new">
-      <button
-        type="button"
-        id="new-rule-btn"
-        class="btn btn-primary btn-pretty"
-      >
-        <v-icon dark> mdi-plus-circle </v-icon>
-        New Rule
-      </button>
-    </router-link>
-    <VueJsonToCsv :json-data="this.rules" :csv-title="'rules_export'">
-      <button type="button" id="csv-btn" class="btn btn-primary btn-pretty">
-        <v-icon dark> mdi-file-export </v-icon>
-        Export CSV
-      </button>
-    </VueJsonToCsv>
+  <v-main>
+    <div id="transaction-page">
+      <router-link to="/notification-rules/new">
+        <button type="button" id="new-rule-btn" class="btn primary btn-pretty">
+          <v-icon dark> mdi-plus-circle </v-icon>
+          <span style="color: white">New Rule</span>
+        </button>
+      </router-link>
+      <VueJsonToCsv :json-data="this.rules" :csv-title="'rules_export'">
+        <button type="button" id="csv-btn" class="btn primary btn-pretty">
+          <v-icon dark> mdi-file-export </v-icon>
+          <span style="color: white">Export CSV</span>
+        </button>
+      </VueJsonToCsv>
 
-    <br /><br /><!-- TODO: remove this hack -->
-    <v-card class="mb-1">
-      <v-card-title>
-        Notification Rules
-        <v-spacer></v-spacer>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          single-line
-          hide-details
-        ></v-text-field>
-      </v-card-title>
-      <v-data-table
-        :headers="headers"
-        :items="rules"
-        :items-per-page="10"
-        :search="search"
-        :loading="!rules.length"
-        loading-text="Loading... Please wait"
-      ></v-data-table>
-    </v-card>
-  </div>
-</v-main>
+      <br /><br /><!-- TODO: remove this hack -->
+      <v-card class="mb-1">
+        <v-card-title>
+          <v-icon>mdi-bell</v-icon>&nbsp;
+          Notification Rules
+          <v-spacer></v-spacer>
+          <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
+          ></v-text-field>
+        </v-card-title>
+        <v-data-table
+          :headers="headers"
+          :items="rules"
+          :items-per-page="10"
+          :search="search"
+          :loading="!rules.length"
+          loading-text="Loading... Please wait"
+        >
+          <template #[`item.actions`]="{ item }">
+            
+            <router-link :to="`/notification-rules/${item.id}/edit`" class="text-decoration-none">
+            <v-icon small class="mr-2">
+              mdi-pencil
+            </v-icon>
+            Edit
+            </router-link>
+          </template>
+        </v-data-table>
+      </v-card>
+    </div>
+  </v-main>
 </template>
 
 <script>
@@ -61,7 +68,7 @@ export default {
         },
         { text: "Rule Type", value: "type" },
         { text: "Count Triggered", value: "countTriggered" },
-        // {text: "Edit"}
+        { text: "Actions", value: "actions", sortable: false },
       ],
       rules: [{}],
     };
@@ -90,7 +97,6 @@ h2 {
 }
 #new-rule-btn,
 #csv-btn {
-  background-color: #006747;
   border-radius: 10px;
   border-style: none;
   cursor: pointer;
