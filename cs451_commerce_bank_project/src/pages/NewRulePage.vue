@@ -3,7 +3,7 @@
     <div id="content-wrapper">
       <NavBar />
       <div id="page-content">
-        <NewRulesForm />
+        <NewRuleForm />
       </div>
     </div>
   </v-main>
@@ -11,13 +11,13 @@
 
 <script>
 import NavBar from "../components/NavBar.vue";
-import NewRulesForm from "../components/NewRuleForm.vue";
+import NewRuleForm from "../components/NewRuleForm.vue";
 
 export default {
   name: "NewRulePage",
   components: {
     NavBar,
-    NewRulesForm,
+    NewRuleForm,
   },
 };
 </script>
