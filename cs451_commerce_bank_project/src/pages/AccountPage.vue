@@ -13,7 +13,7 @@
               <v-col align-self="start" class="pa-0" cols="12">
                 <v-avatar class="profile" color="grey" size="164" tile>
                   <v-img
-                    src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
+                    src="https://static.wikia.nocookie.net/supermonkeyball/images/5/56/Aiai2001.png"
                   ></v-img>
                 </v-avatar>
               </v-col>
@@ -21,7 +21,7 @@
                 <v-list-item color="rgba(0, 0, 0, .4)" dark>
                   <v-list-item-content>
                     <v-list-item-title class="text-h6">
-                      Marcus Obrien
+                      Michael Day
                     </v-list-item-title>
                     <v-list-item-subtitle
                       >Customer for 4 years</v-list-item-subtitle
@@ -68,7 +68,7 @@ export default {
     items: [
       {
         text: "Full Name",
-        content: "Marcus Obrien",
+        content: "Michael Day",
         icon: "mdi-card-account-details",
       },
       { text: "Account ID", content: "1010000749", icon: "mdi-passport" },
