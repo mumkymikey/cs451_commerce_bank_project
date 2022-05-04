@@ -71,7 +71,7 @@ export default {
       search: "",
       headers: [
         {
-          text: "Accound ID",
+          text: "Account ID",
           align: "start",
           sortable: false,
           value: "userAccountId",
